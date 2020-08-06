@@ -3,7 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import {  Route, NavLink } from "react-router-dom";
 import UserList from './components/UserList';
+import UserForm from './components/UserForm';
+
 import{Axios} from './utils/Axios';
+import UserUpdate from './components/UserUpdate';
 
 
 
@@ -37,9 +40,12 @@ const App = () => {
       path="/user-list"
       render={props => <UserList {...props} usersList={usersList} />}
       />
-      <Route
+      <Route exact path="/user-form" component={UserForm} />
+      <Route exact path="/update-user/:id" component={UserUpdate}/>
+      {/* <Route
       exact
-      path="/user-form">Users</Route>
+      path="/user-form"
+      render={props => UserForm {...props} } */}
     </div>
   );
 }
